@@ -1,0 +1,27 @@
+from torch import Tensor
+import numpy as np
+from torch.utils.data import TensorDataset, DataLoader
+from torch import save
+
+def mnist():
+
+    # Download and load the training data
+    path_1 = "data/raw/train_0.npz"
+    trainset = np.load(path_1)
+    images = Tensor(trainset["images"]) # transform to torch tensor
+    labels = Tensor(trainset["labels"])
+    my_dataset = TensorDataset(images,labels)
+    train = DataLoader(my_dataset, batch_size=32, shuffle=True)
+    path_2 = "data/raw/test.npz"
+    testset = np.load(path_2)
+    images = Tensor(testset["images"]) # transform to torch tensor
+    labels = Tensor(testset["labels"])
+    my_dataset = TensorDataset(images,labels)
+    test = DataLoader(my_dataset, batch_size=32, shuffle=True)    
+    save(train,"data/processed/train.pth")
+    save(test,"data/processed/test.pth")
+    print("Saved to data/processed/")
+
+
+if __name__ == '__main__':
+    mnist()

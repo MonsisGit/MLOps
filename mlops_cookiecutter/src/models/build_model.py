@@ -1,7 +1,7 @@
 from torch import nn
 from torch.nn import functional as F
 
-class MyAwesomeModel(nn.Module):
+class MyModel(nn.Module):
     def __init__(self):
         super().__init__()
 
@@ -17,6 +17,6 @@ class MyAwesomeModel(nn.Module):
         x = F.relu(self.fc1(x))
         x = F.relu(self.fc2(x))
         x = F.relu(self.fc3(x))
-        x = F.log_softmax(self.fc4(x), dim=1) 
-         
+        x = F.log_softmax(self.fc4(x), dim=1)
+        
         return x
