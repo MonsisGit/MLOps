@@ -1,0 +1,6 @@
+hyperparameters:
+ epochs: 20
+ model_path : "/models/checkpoint.pth"
+ data_train_path : "/data/processed/train.pth"
+ data_test_path : "/data/processed/test.pth"
+ lr : 0.01

@@ -2,10 +2,13 @@ import argparse
 import sys
 
 import torch
+import hydra
+import logging
 
 from build_model import MyModel
 
-def predict():
+@hydra.main(config_name="config_train",config_path="../config/")
+def predict(cfh):
 
     parser = argparse.ArgumentParser(description='Training arguments')
     parser.add_argument('--model_path', default="models/checkpoint.pth")
@@ -14,6 +17,16 @@ def predict():
     # add any additional argument that you want
     args = parser.parse_args(sys.argv[2:])
     print(args)
+
+    log = logging.getLogger(__name__)
+
+    log.info("Training day and night")
+    
+    epochs = cfg.hyperparameters.epochs
+    model_path = cfg.hyperparameters.model_path
+    data_train_path = cfg.hyperparameters.data_train_path
+    data_test_path = cfg.hyperparameters.data_test_path
+    lr = cfg.hyperparameters.lr
 
     testloader = torch.load(args.folder_path)
 
