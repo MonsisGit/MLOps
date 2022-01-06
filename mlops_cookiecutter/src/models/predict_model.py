@@ -8,7 +8,7 @@ import logging
 from build_model import MyModel
 
 @hydra.main(config_name="config_train",config_path="../config/")
-def predict(cfh):
+def predict(cfg):
 
     parser = argparse.ArgumentParser(description='Training arguments')
     parser.add_argument('--model_path', default="models/checkpoint.pth")

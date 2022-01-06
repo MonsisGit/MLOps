@@ -11,13 +11,13 @@ def mnist():
     images = Tensor(trainset["images"]) # transform to torch tensor
     labels = Tensor(trainset["labels"])
     my_dataset = TensorDataset(images,labels)
-    train = DataLoader(my_dataset, batch_size=32, shuffle=True)
+    train = DataLoader(my_dataset, batch_size=32, shuffle=True,num_workers=8)
     path_2 = "data/raw/test.npz"
     testset = np.load(path_2)
     images = Tensor(testset["images"]) # transform to torch tensor
     labels = Tensor(testset["labels"])
     my_dataset = TensorDataset(images,labels)
-    test = DataLoader(my_dataset, batch_size=32, shuffle=True)    
+    test = DataLoader(my_dataset, batch_size=32, shuffle=True,num_workers=8)    
     save(train,"data/processed/train.pth")
     save(test,"data/processed/test.pth")
     print("Saved to data/processed/")
