@@ -14,16 +14,15 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Set up Python 3.8
+    - name: Set up Python 3.7
       uses: actions/setup-python@v2
       with:
         python-version: 3.7
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        pip install -r requirements_tests.txt
+        pip install -r mlops_cookiecutter/requirements.txt
+        pip install -r mlops_cookiecutter/requirements_tests.txt
     - name: Test with pytest
       run: |
-        pip install pytest
-        pytest -v
+        pytest mlops_cookiecutter/tests
