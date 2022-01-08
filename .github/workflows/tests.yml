@@ -25,4 +25,5 @@ jobs:
         pip install -r mlops_cookiecutter/requirements_tests.txt
     - name: Test with pytest
       run: |
-        pytest mlops_cookiecutter/tests
+        pip install pytest
+        pytest -v
