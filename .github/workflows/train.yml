@@ -16,10 +16,9 @@ jobs:
       env:
           REPO_TOKEN: $
       run: |
-          pip install -r requirements.txt  # install dependencies
-          python mlops_cookiecutter/src/models/train_model_cml.py  # run training
+        pip install -r mlops_cookiecutter/requirements.txt
 
-          # send all information to report.md that will be reported to us when the workflow finish
-          cat mlops_cookiecutter/reports/classification_report.txt >> report.md
-          cml-publish mlops_cookiecutter/reports/figures/confusion_matrix.png --md >> report.md
-          cml-send-comment report.md
+        # send all information to report.md that will be reported to us when the workflow finish
+        cat mlops_cookiecutter/reports/classification_report.txt >> report.md
+        cml-publish mlops_cookiecutter/reports/figures/confusion_matrix.png --md >> report.md
+        cml-send-comment report.md
