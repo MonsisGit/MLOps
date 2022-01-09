@@ -1,7 +1,7 @@
-from torch import Tensor
 import numpy as np
-from torch.utils.data import TensorDataset, DataLoader
-from torch import save
+from torch import Tensor, save
+from torch.utils.data import DataLoader, TensorDataset
+
 
 def mnist():
 

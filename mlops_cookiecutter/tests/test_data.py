@@ -1,5 +1,6 @@
-import torch
 import os
+
+import torch
 
 
 def test_dataset():

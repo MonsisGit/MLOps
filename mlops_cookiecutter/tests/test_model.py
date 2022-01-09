@@ -1,10 +1,10 @@
-import torch
-import os
 import os
 import sys
+
 import pytest
+import torch
 from torch.nn.modules import module
-  
+
 # setting path
 sys.path.append(os.getcwd() + "/mlops_cookiecutter")
 from src.models.build_model import MyModel

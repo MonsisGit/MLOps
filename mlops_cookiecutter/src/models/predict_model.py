@@ -1,11 +1,11 @@
 import argparse
+import logging
 import sys
 
-import torch
 import hydra
-import logging
-
+import torch
 from build_model import MyModel
+
 
 @hydra.main(config_name="config_train",config_path="../config/")
 def predict(cfg):

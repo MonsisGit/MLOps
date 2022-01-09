@@ -2,9 +2,8 @@ import argparse
 import sys
 
 import torch
-
-from matplotlib import pyplot as plt
 from build_model import MyModel
+from matplotlib import pyplot as plt
 
 
 def predict():

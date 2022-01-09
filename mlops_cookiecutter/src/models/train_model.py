@@ -10,7 +10,7 @@ from src.models.build_model import MyModel
 
 
 
-def train(epochs=20,save=True):
+def train(epochs:int=20,save:bool=True) -> None:
     log = logging.getLogger(__name__)
     log.info("Training day and night")
     
@@ -18,14 +18,10 @@ def train(epochs=20,save=True):
     data_train_path = os.getcwd() + "/data/processed/train.pth"
     data_test_path = os.getcwd() + "/data/processed/test.pth"
 
-    # add any additional argument that you want
-
     model = MyModel()
     model.load_state_dict(torch.load(model_path))
     trainloader = torch.load(data_train_path)
     valloader = torch.load(data_test_path)
-    #import pdb
-    #pdb.set_trace()
 
     logger = TensorBoardLogger("tb_logs", name="my_model")
     trainer = pl.Trainer(max_epochs=epochs,logger=logger)
@@ -37,7 +33,6 @@ def train(epochs=20,save=True):
         torch.save(model.state_dict(),save_pth)
         log.info(f"Model saved to: {save_pth}")
 
-    return 0
 
 if __name__ == '__main__':
     train()
