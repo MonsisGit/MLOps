@@ -11,7 +11,7 @@ __pycache__/
 *.png
 *.gif
 
-
+mlops_cookiecutter/tb_logs/
 # Distribution / packaging
 .Python
 build/
