@@ -17,6 +17,8 @@ jobs:
           REPO_TOKEN: $
       run: |
         pip install -r mlops_cookiecutter/requirements.txt
+        
+        python mlops_cookiecutter/src/models/train_model_cml.py
 
         # send all information to report.md that will be reported to us when the workflow finish
         cat mlops_cookiecutter/reports/classification_report.txt >> report.md
