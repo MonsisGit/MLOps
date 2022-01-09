@@ -25,7 +25,7 @@ jobs:
         GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
       working-directory: mlops_cookiecutter/
       run: |
-        dvc pull data --run-cache
+        dvc pull --run-cache
 
     - name: cml_run
       working-directory: mlops_cookiecutter/
