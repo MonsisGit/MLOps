@@ -27,3 +27,5 @@ jobs:
     - name: Sort imports
       run: |
         mypy mlops_cookiecutter/
+      continue-on-error: true
+
