@@ -13,14 +13,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: cml_run
+      working-directory: mlops_cookiecutter/
       env:
           REPO_TOKEN: $
       run: |
-        pip install -r mlops_cookiecutter/requirements.txt
-        
-        python mlops_cookiecutter/src/models/train_model_cml.py
+        pip install -r requirements.txt
+        python src/models/train_model_cml.py
 
         # send all information to report.md that will be reported to us when the workflow finish
-        cat mlops_cookiecutter/reports/classification_report.txt >> report.md
-        cml-publish mlops_cookiecutter/reports/figures/confusion_matrix.png --md >> report.md
+        cat reports/classification_report.txt >> report.md
+        cml-publish reports/figures/confusion_matrix.png --md >> report.md
         cml-send-comment report.md
