@@ -12,22 +12,25 @@ jobs:
     container: docker://iterativeai/cml:0-dvc2-base1  # this contains the continues machine learning pipeline
     steps:
     - uses: actions/checkout@v2
+    - uses: iterative/setup-dvc@v1
+
+    - name: install requirements
+      working-directory: mlops_cookiecutter/
+      run: |
+        pip install -r requirements.txt
 
     - name: Pull Data
       env:
         GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
-      uses: iterative/setup-dvc@v1
       working-directory: mlops_cookiecutter/
       run: |
         dvc pull data --run-cache
-
 
     - name: cml_run
       working-directory: mlops_cookiecutter/
       env:
           REPO_TOKEN: $
       run: |
-        pip install -r requirements.txt
         python src/models/train_model_cml.py
 
         # send all information to report.md that will be reported to us when the workflow finish
