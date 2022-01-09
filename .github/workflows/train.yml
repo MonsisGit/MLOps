@@ -5,7 +5,7 @@ on:
     branches: [ main ]
   pull_request:
     branches: [ main ]
-    
+
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -17,9 +17,9 @@ jobs:
           REPO_TOKEN: $
       run: |
           pip install -r requirements.txt  # install dependencies
-          python train.py  # run training
+          python mlops_cookiecutter/src/models/train_model_cml.py  # run training
 
           # send all information to report.md that will be reported to us when the workflow finish
-          cat reports/classification_report.txt >> report.md
-          cml-publish reports/figures/confusion_matrix.png --md >> report.md
+          cat mlops_cookiecutter/reports/classification_report.txt >> report.md
+          cml-publish mlops_cookiecutter/reports/figures/confusion_matrix.png --md >> report.md
           cml-send-comment report.md
