@@ -19,8 +19,8 @@ jobs:
       uses: actions/cache@v2
       with:
         path: ${{ steps.pip-cache.outputs.dir }}
-        key: ${{ runner.os }}
-        restore-keys: ${{ runner.os }}
+        key: ${{ runner.os }}-py
+        restore-keys: ${{ runner.os }}-py
 
     - name: install_requirements
       working-directory: mlops_cookiecutter/
