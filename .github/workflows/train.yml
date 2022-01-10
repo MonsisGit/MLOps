@@ -21,7 +21,7 @@ jobs:
         pip install -r requirements.txt
 
     - name: Pull Data
-      working-directory: mlops_cookiecutter/
+      #working-directory: mlops_cookiecutter/
       run: |
         dvc pull --run-cache
         env:
