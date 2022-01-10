@@ -22,7 +22,7 @@ jobs:
 
     - name: create gdrive_credentials
       run: |
-        'echo "$gdrive_credentials" > gdrive_credentials.json'
+        echo "$gdrive_credentials" > gdrive_credentials.json
         shell: bash
         env:
           gdrive_credentials: ${{secrets.GDRIVE_CREDENTIALS_DATA}}
