@@ -15,6 +15,13 @@ jobs:
     - uses: iterative/setup-cml@v1
     - uses: iterative/setup-dvc@v1
 
+    - name: Cache pip
+      uses: actions/cache@v2
+      with:
+        path: ${{ steps.pip-cache.outputs.dir }}
+        key: ${{ runner.os }}
+        restore-keys: ${{ runner.os }}
+
     - name: install_requirements
       working-directory: mlops_cookiecutter/
       run: |
@@ -22,7 +29,7 @@ jobs:
 
     - name: create gdrive_credentials
       run: |
-        echo "$gdrive_credentials" > gdrive_credentials.json
+        echo "${{secrets.GDRIVE_CREDENTIALS_DATA}}" > gdrive_credentials.json
         shell: bash
         env:
           gdrive_credentials: ${{secrets.GDRIVE_CREDENTIALS_DATA}}
