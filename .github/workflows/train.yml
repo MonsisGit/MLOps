@@ -20,13 +20,17 @@ jobs:
       run: |
         pip install -r requirements.txt
 
+    - name: create gdrive_credentials
+      run: |
+        'echo "$gdrive_credentials" > gdrive_credentials.json'
+        shell: bash
+        env:
+          gdrive_credentials: ${{secrets.GDRIVE_CREDENTIALS_DATA}}
+
+
     - name: Pull Data
       #working-directory: mlops_cookiecutter/
       run: |
-       'echo "$gdrive_credentials" > gdrive_credentials.json'
-          shell: bash
-          env:
-            gdrive_credentials: ${{secrets.GDRIVE_CREDENTIALS_DATA}}
         dvc init --no-scm
         # configuring remote server in dvc
         dvc remote add -d storage gdrive://1EQmnf_diOrKH0hZ9GleolN5EvgRCGjCy
@@ -34,9 +38,7 @@ jobs:
         dvc remote modify storage gdrive_service_account_json_file_path gdrive_credentials.json
 
         dvc pull --run-cache
-        env:
-          #GDRIVE_CREDENTIALS_DATA: ${{ secrets.GDRIVE_CREDENTIALS_DATA }}
-          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
     - name: cml_run
       working-directory: mlops_cookiecutter/
