@@ -14,7 +14,7 @@ COPY mlops_cookiecutter/src/ src/
 #COPY mlops_cookiecutter/data/ data/
 COPY mlops_cookiecutter/models/ models/
 COPY mlops_cookiecutter/reports/ reports/
-COPY .dvc/ .dvc/
+#COPY .dvc/ .dvc/
 COPY mlops_cookiecutter/data.dvc data.dvc
 COPY mlops_cookiecutter/tests/ tests/
 #COPY .git/ .git/
