@@ -26,7 +26,7 @@ RUN pip install dvc[gc]
 
 RUN dvc init --no-scm
 RUN dvc remote add -d storage gs://mlops-bucket-simon/
-RUN dvc pull
+RUN dvc pull --remote storage
 #RUN dvc config core.no_scm true
 
 #Entrypoint
