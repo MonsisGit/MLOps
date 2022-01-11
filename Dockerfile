@@ -11,13 +11,15 @@ apt clean && rm -rf /var/lib/apt/lists/*
 COPY mlops_cookiecutter/requirements.txt requirements.txt
 COPY mlops_cookiecutter/setup.py setup.py
 COPY mlops_cookiecutter/src/ src/
-COPY mlops_cookiecutter/data/ data/
+#COPY mlops_cookiecutter/data/ data/
 COPY mlops_cookiecutter/models/ models/
 COPY mlops_cookiecutter/reports/ reports/
 
 #install modules
 WORKDIR /
 RUN pip install -r requirements.txt --no-cache-dir
+RUN pip install dvc[gc]
+RUN dvc pull
 
 #RUN conda install --file requirements.txt
 
