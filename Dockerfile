@@ -17,10 +17,11 @@ COPY mlops_cookiecutter/reports/ reports/
 COPY .dvc/ .dvc/
 COPY mlops_cookiecutter/data.dvc data.dvc
 COPY mlops_cookiecutter/tests/ tests/
+COPY .git/ .git/
 
 #install modules
-WORKDIR /
-#RUN pip install -r requirements.txt --no-cache-dir
+#WORKDIR /
+RUN pip install -r requirements.txt --no-cache-dir
 RUN pip install dvc[gc]
 RUN dvc pull
 
