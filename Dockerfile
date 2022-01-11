@@ -23,11 +23,11 @@ COPY mlops_cookiecutter/tests/ tests/
 #WORKDIR /
 #RUN pip install -r requirements.txt --no-cache-dir
 RUN pip install dvc[gc]
-RUN dvc config core.no_scm true
-RUN dvc pull
-#a
-#RUN conda install --file requirements.txt
 
+RUN dvc init --no-scm
+RUN dvc remote add -d storage gs://mlops-bucket-simon/
+RUN dvc pull mlops_cookiecutter/data
+#RUN dvc config core.no_scm true
 
 #Entrypoint
 ENTRYPOINT ["python", "-u", "src/models/train_model.py"]
