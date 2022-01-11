@@ -4,5 +4,4 @@
     url = gdrive://1EQmnf_diOrKH0hZ9GleolN5EvgRCGjCy
     gdrive_use_service_account = true
     gdrive_service_account_json_file_path = ../mlops_cookiecutter/secrets/mlops-gdrive-329c6c194d1b.json
-    gdrive_client_id = 949465926178-3rhlld7c1rj6fj5m9gajuq22id81p1cm.apps.googleusercontent.com
-    gdrive_client_secret = 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
+    
