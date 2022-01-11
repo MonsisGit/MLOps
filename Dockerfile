@@ -8,16 +8,16 @@ apt clean && rm -rf /var/lib/apt/lists/*
 
 
 #Copying stuff
-COPY requirements.txt requirements.txt
-COPY setup.py setup.py
-COPY src/ src/
-COPY data/ data/
-COPY models/ models/
-COPY reports/ reports/
+COPY mlops_cookiecutter/requirements.txt requirements.txt
+COPY mlops_cookiecutter/setup.py setup.py
+COPY mlops_cookiecutter/src/ src/
+COPY mlops_cookiecutter/data/ data/
+COPY mlops_cookiecutter/models/ models/
+COPY mlops_cookiecutter/reports/ reports/
 
 #install modules
 WORKDIR /
-RUN pip install -r mlops_cookiecutter/requirements.txt --no-cache-dir
+RUN pip install -r requirements.txt --no-cache-dir
 
 #RUN conda install --file requirements.txt
 
