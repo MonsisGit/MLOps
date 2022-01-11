@@ -26,7 +26,7 @@ RUN pip install dvc[gc]
 
 RUN dvc init --no-scm
 RUN dvc remote add -d storage gs://mlops-bucket-simon/
-RUN dvc pull mlops_cookiecutter/data
+RUN dvc pull
 #RUN dvc config core.no_scm true
 
 #Entrypoint
