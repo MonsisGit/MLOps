@@ -24,7 +24,7 @@ COPY .git/ .git/
 RUN pip install -r requirements.txt --no-cache-dir
 RUN pip install dvc[gc]
 RUN dvc pull
-
+#s
 #RUN conda install --file requirements.txt
 
 
