@@ -1,8 +1,10 @@
 [core]
     remote = remote_storage
+
+['remote "remote_storage"']
+    url = gs://mlops-bucket-simon/
+
 ['remote "myremote"']
     url = gdrive://1EQmnf_diOrKH0hZ9GleolN5EvgRCGjCy
     gdrive_use_service_account = true
     gdrive_service_account_json_file_path = ../mlops_cookiecutter/secrets/mlops-gdrive-329c6c194d1b.json
-['remote "remote_storage"']
-    url = gs://mlops-bucket-simon/
