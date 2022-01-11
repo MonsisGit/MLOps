@@ -25,7 +25,7 @@ COPY mlops_cookiecutter/tests/ tests/
 RUN pip install dvc[gc]
 RUN dvc config core.no_scm true
 RUN dvc pull
-#s
+#a
 #RUN conda install --file requirements.txt
 
 
